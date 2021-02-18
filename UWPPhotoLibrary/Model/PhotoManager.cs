@@ -8,5 +8,6 @@ namespace UWPPhotoLibrary.Model
 {
     class PhotoManager
     {
+
     }
 }
