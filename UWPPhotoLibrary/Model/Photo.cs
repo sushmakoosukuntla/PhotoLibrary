@@ -16,19 +16,18 @@ namespace UWPPhotoLibrary.Model
     }
     public class Photo
     {
-        public AlbumName Album { get; set; }
+        public AlbumName AlbumName { get; set; }
         public string ImageFile { get; set; }
         public DateTime DateCreated { get; }
         public string Name { get; set; }
 
         //Below is the constructor
-        public Photo(AlbumName album)
+        public Photo(String name, AlbumName albumName)
         {
-            ImageFile = $"/Assets/Audio/{Album}/{Name}.jpg";// file path
-            Album = album;
-
-            /*I'm not defining the DateCreated, because we have to use 
-            .Now property when ever we add the photo in to the album*/
+            Name = name;
+            AlbumName = albumName;
+            ImageFile = $"/Assets/{AlbumName}/{Name}.jpg"; // file path 
+            DateCreated = DateTime.Now;
         }
     }
 }
