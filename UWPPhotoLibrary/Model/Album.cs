@@ -6,19 +6,9 @@ using System.Threading.Tasks;
 
 namespace UWPPhotoLibrary.Model
 {
-    public class Album
+    class Album
     {
-        private List<Photo> getImages()
-        {
-            var images = new List<Photo>();
-            images.Add(new Photo(AlbumName.Animals));
-            images.Add(new Photo(AlbumName.Babies));
-            images.Add(new Photo(AlbumName.Flowers));
-            images.Add(new Photo(AlbumName.Fruits));
-            images.Add(new Photo(AlbumName.Nature));
-
-            return images;
-
-        }
+     
+        
     }
 }
