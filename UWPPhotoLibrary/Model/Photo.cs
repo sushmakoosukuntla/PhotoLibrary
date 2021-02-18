@@ -24,7 +24,7 @@ namespace UWPPhotoLibrary.Model
         //Below is the constructor
         public Photo(AlbumName album)
         {
-            ImageFile = $"/Assets/Audio/{Album}/{Name}.jpg";
+            ImageFile = $"/Assets/Audio/{Album}/{Name}.jpg";// file path
             Album = album;
 
             /*I'm not defining the DateCreated, because we have to use 
