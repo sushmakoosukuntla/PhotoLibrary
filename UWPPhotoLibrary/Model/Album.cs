@@ -8,5 +8,16 @@ namespace UWPPhotoLibrary.Model
 {
     class Album
     {
+        //Below is the property(In album there are list of photos)
+        public List<Photo> photos = new List<Photo>();
+        
+        //Below is the constructor
+        public Album(List<Photo> photos)
+        {
+            
+        }
+        
+
+       
     }
 }

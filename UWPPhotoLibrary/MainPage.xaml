@@ -8,7 +8,18 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>+
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button Content="&#xE700;" RelativePanel.AlignLeftWithPanel="True" 
+                    FontFamily = "Segoe MDL2 Assets" Height="Auto" Width="Auto" Name="HamburgerButton"/>
+            <TextBlock Name ="Library Name" Text="My Photo Library" FontSize="19" Height="Auto" 
+                       Width="Auto" RelativePanel.RightOf="HamburgerButton"/>
+            <Button Name="ExitButton">
+            </Button>
+        </RelativePanel>
     </Grid>
 </Page>
