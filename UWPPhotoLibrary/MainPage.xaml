@@ -15,11 +15,19 @@
         </Grid.RowDefinitions>
         <RelativePanel>
             <Button Content="&#xE700;" RelativePanel.AlignLeftWithPanel="True" 
-                    FontFamily = "Segoe MDL2 Assets" Height="Auto" Width="Auto" Name="HamburgerButton"/>
-            <TextBlock Name ="Library Name" Text="My Photo Library" FontSize="19" Height="Auto" 
+                    FontFamily = "Segoe MDL2 Assets" Height="Auto" Width="Auto" Name="HamburgerButton"
+                    Click="HamburgerButton_Click"/>
+            <TextBlock Name ="LibraryName" Text="My Photo Library" FontSize="19" Height="Auto" 
                        Width="Auto" RelativePanel.RightOf="HamburgerButton"/>
-            <Button Name="ExitButton">
-            </Button>
         </RelativePanel>
+        <SplitView Grid.Row="1" Name="MySplitView"
+                   DisplayMode="Inline"                   
+                   OpenPaneLength="150">
+            <SplitView.Pane>
+                <ListView Name="MenuItemsList" IsItemClickEnabled="True">
+                    
+                </ListView>
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
 </Page>

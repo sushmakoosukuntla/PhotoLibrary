@@ -13,6 +13,7 @@ namespace UWPPhotoLibrary.Model
         Flowers,
         Fruits,
         Nature
+        
     }
     public class Photo
     {
@@ -29,5 +30,6 @@ namespace UWPPhotoLibrary.Model
             ImageFile = $"/Assets/{AlbumName}/{Name}.jpg"; // file path 
             DateCreated = DateTime.Now;
         }
+
     }
 }
