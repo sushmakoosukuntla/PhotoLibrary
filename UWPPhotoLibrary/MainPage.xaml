@@ -14,20 +14,26 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <RelativePanel>
-            <Button Content="&#xE700;" RelativePanel.AlignLeftWithPanel="True" 
-                    FontFamily = "Segoe MDL2 Assets" Height="Auto" Width="Auto" Name="HamburgerButton"
-                    Click="HamburgerButton_Click"/>
+            <Button Content="&#xE0A6;" RelativePanel.AlignLeftWithPanel="True"
+                FontFamily = "Segoe MDL2 Assets" Width="45" Name="BackButton" Visibility="Visible" 
+                    Click="BackButton_Click"/>
             <TextBlock Name ="LibraryName" Text="My Photo Library" FontSize="19" Height="Auto" 
-                       Width="Auto" RelativePanel.RightOf="HamburgerButton"/>
+                       Width="Auto" RelativePanel.RightOf="BackButton"/>
         </RelativePanel>
-        <SplitView Grid.Row="1" Name="MySplitView"
-                   DisplayMode="Inline"                   
-                   OpenPaneLength="150">
-            <SplitView.Pane>
-                <ListView Name="MenuItemsList" IsItemClickEnabled="True">
-                    
-                </ListView>
-            </SplitView.Pane>
-        </SplitView>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <GridView Name="CategoryGrid" ItemsSource="{x:Bind sounds}" IsItemClickEnabled="True"
+                              SelectionMode="Multiple">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Sound">
+                            <Image Name="Image" Height="112" Width="101" Source="{x:Bind ImageFile}" />
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+        </Grid>
     </Grid>
 </Page>

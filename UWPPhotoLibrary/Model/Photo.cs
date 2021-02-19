@@ -27,7 +27,7 @@ namespace UWPPhotoLibrary.Model
         {
             Name = name;
             AlbumName = albumName;
-            ImageFile = $"/Assets/{AlbumName}/{Name}.jpg"; // file path 
+            ImageFile = $"/Assets/Images/{AlbumName}/{Name}.jpg"; // file path 
             DateCreated = DateTime.Now;
         }
 
