@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWPPhotoLibrary.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +24,25 @@ namespace UWPPhotoLibrary
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<Photo> photos;
+        private List<MenuItem> MenuItems;
         public MainPage()
         {
             this.InitializeComponent();
+
+            photos = PhotoManager.GetAllPhotos();
+            MenuItems = new List<MenuItem>();
+            MenuItems.Add(new MenuItem(PhotoCategory.AllPhotos, "All Photos"));
+            MenuItems.Add(new MenuItem(PhotoCategory.Albums, "Albums"));
+            MenuItems.Add(new MenuItem(PhotoCategory.Favotites, "Favorites"));
+
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            //MySplitView is the name given for Grid.Row="1" in Xaml in line 23  
+            // If the pane is open it is true, we used ! so it becomes false and the pane gets closed
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
     }
 }
