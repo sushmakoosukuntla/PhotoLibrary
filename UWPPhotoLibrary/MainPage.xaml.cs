@@ -25,24 +25,22 @@ namespace UWPPhotoLibrary
     public sealed partial class MainPage : Page
     {
         private ObservableCollection<Photo> photos;
-        private List<MenuItem> MenuItems;
+        private List<CategoryList> Category;
         public MainPage()
         {
             this.InitializeComponent();
-
-            photos = PhotoManager.GetAllPhotos();
-            MenuItems = new List<MenuItem>();
-            MenuItems.Add(new MenuItem(PhotoCategory.AllPhotos, "All Photos"));
-            MenuItems.Add(new MenuItem(PhotoCategory.Albums, "Albums"));
-            MenuItems.Add(new MenuItem(PhotoCategory.Favotites, "Favorites"));
+            
+            //After initializing the app, we can see category grid.
+            Category = new List<CategoryList>();
+            Category.Add(new CategoryList { IconFile = "Assets/CategoryIcons/Albums-Icon.png", });
+            Category.Add(new CategoryList(PhotoCategory.Albums, "Albums"));
+            Category.Add(new CategoryList(PhotoCategory.Favotites, "Favorites"));
 
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e) //line 21 in xaml
         {
-            //MySplitView is the name given for Grid.Row="1" in Xaml in line 23  
-            // If the pane is open it is true, we used ! so it becomes false and the pane gets closed
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            
         }
     }
 }
