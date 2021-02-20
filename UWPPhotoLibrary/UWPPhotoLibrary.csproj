@@ -123,7 +123,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Album.cs" />
+    <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Photo.cs" />
+    <Compile Include="Model\PhotoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,15 +134,23 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Animals\Animals1.jpg" />
-    <Content Include="Assets\Animals\Animals2.jpg" />
-    <Content Include="Assets\Babies\Baby1.jpg" />
-    <Content Include="Assets\Babies\Baby2.jpg" />
-    <Content Include="Assets\Flowers\Flowers1.jpg" />
-    <Content Include="Assets\Flowers\Flowers2.jpg" />
-    <Content Include="Assets\Fruits\Fruits1.jpg" />
-    <Content Include="Assets\Fruits\Fruits2.jpg" />
-    <Content Include="Assets\Nature\Nature.jpg" />
+    <Content Include="Assets\Album Icons\Animals-Icon.png" />
+    <Content Include="Assets\Album Icons\Babies-icon.png" />
+    <Content Include="Assets\Album Icons\Flowers-icon.png" />
+    <Content Include="Assets\Album Icons\Fruits-icon.png" />
+    <Content Include="Assets\Album Icons\Nature-icon.png" />
+    <Content Include="Assets\Images\Animals\Animals1.jpg" />
+    <Content Include="Assets\Images\Animals\Animals2.jpg" />
+    <Content Include="Assets\Images\Babies\Baby1.jpg" />
+    <Content Include="Assets\Images\Babies\Baby2.jpg" />
+    <Content Include="Assets\Images\Flowers\Flowers1.jpg" />
+    <Content Include="Assets\Images\Flowers\Flowers2.jpg" />
+    <Content Include="Assets\Images\Fruits\Fruits1.jpg" />
+    <Content Include="Assets\Images\Fruits\Fruits2.jpg" />
+    <Content Include="Assets\Category Icons\Albums-Icon.png" />
+    <Content Include="Assets\Category Icons\AllPhotos-Icon.png" />
+    <Content Include="Assets\Category Icons\Favorites-Icon.png" />
+    <Content Include="Assets\Images\Nature\Nature.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
