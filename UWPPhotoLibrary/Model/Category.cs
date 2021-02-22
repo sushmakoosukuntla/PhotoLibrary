@@ -12,9 +12,9 @@ namespace UWPPhotoLibrary.Model
         Albums,
         Favotites
     }
-    class CategoryList
+    class Category
     {
-        public PhotoCategory Category { get;}        
+        public PhotoCategory PhotoCategory { get; set; }        
         public string IconFile { get; set; }
      
     }

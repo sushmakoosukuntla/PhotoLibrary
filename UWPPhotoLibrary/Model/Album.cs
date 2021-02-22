@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace UWPPhotoLibrary.Model
 {
-    class Album
+    public class Album
     {
         //Below is the property(In album there are list of photos)
-        public List<Photo> photos = new List<Photo>();
+        public  AlbumName AlbumType  {get; set;}  
+        public string IconFile { get; set; }
         
         //Below is the constructor
-        public Album(List<Photo> photos)
-        {
-            
-        }
-        
-
+      
        
     }
 }
