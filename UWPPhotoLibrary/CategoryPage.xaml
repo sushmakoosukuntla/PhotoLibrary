@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GridView Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
+        <GridView  Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
                               SelectionMode="None" ItemClick="CategoryGrid_ItemClick" >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Category">
@@ -21,7 +21,7 @@
                         <Image Name="Image" Height="80" Width="80" Source="{x:Bind IconFile}" 
                                    Margin="40,45,40,10"/>
                         <TextBlock Name ="Category Name" Text="{x:Bind PhotoCategory}"
-                                       FontSize="20" FontFamily="Bold" Margin="45, 0, 15, 0"/>
+                                       FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

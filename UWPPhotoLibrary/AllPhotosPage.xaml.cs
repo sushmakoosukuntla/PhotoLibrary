@@ -25,10 +25,35 @@ namespace UWPPhotoLibrary
     public sealed partial class AllPhotosPage : Page
     {
         private ObservableCollection<Photo> photos;
+      
         public AllPhotosPage()
         {
             this.InitializeComponent();
             photos = PhotoManager.GetAllPhotos();
         }
+        //public AllPhotosPage(AlbumName albumType)
+        //{
+         //   PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
+        //}
+
+        public ObservableCollection<Photo> GetPhotos()
+        {
+            return photos;
+        }
+
+        /*Below If we dont overide OnNavigatedTo method in this page(AllPhotosPage), There wont be any function to perform and 
+         the page will display allPhotos without any filter. 
+        So, actully we need filter in that page, so we are calling GetPhotosByCategory from photomanager*/
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e != null && e.Parameter != null)
+            {
+                var albumType = (AlbumName)e.Parameter;
+                PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
+            }
+            // else it ddisplays all the photos without any filter
+            
+        }
+
     }
 }

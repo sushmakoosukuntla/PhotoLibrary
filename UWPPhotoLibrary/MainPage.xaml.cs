@@ -39,17 +39,17 @@ namespace UWPPhotoLibrary
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Frame.CanGoBack)
+            if (MyFrame.CanGoBack)
             {
-                Frame.GoBack();
+                MyFrame.GoBack();
             }
         }
 
         private void ForwardButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Frame.CanGoForward)
+            if (MyFrame.CanGoForward)
             {
-                Frame.GoForward();
+                MyFrame.GoForward();
             }
         }
     }
