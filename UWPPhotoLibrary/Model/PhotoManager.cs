@@ -38,10 +38,10 @@ namespace UWPPhotoLibrary.Model
         }
 
 
-        public static void GetPhotosByCategory(ObservableCollection<Photo> photos, AlbumName category)
+        public static void GetPhotosByCategory(ObservableCollection<Photo> photos, AlbumName albumName)
         {
             var allPhotos = GetPhotos();
-            var filteredPhotos = allPhotos.Where(photo => photo.AlbumName == category).ToList();
+            var filteredPhotos = allPhotos.Where(photo => photo.AlbumName == albumName).ToList();
             photos.Clear();
             filteredPhotos.ForEach(photo => photos.Add(photo));
         }
@@ -85,5 +85,6 @@ namespace UWPPhotoLibrary.Model
 
             return albums;
         }
+     
     }
 }

@@ -42,7 +42,7 @@ namespace UWPPhotoLibrary
             var categoryItem = (Category)e.ClickedItem;
             if(categoryItem.PhotoCategory == PhotoCategory.Albums)
             {
-                Frame.Navigate(typeof(AlbumsPage)); 
+                Frame.Navigate(typeof(AlbumsPage));                
             } 
             else if(categoryItem.PhotoCategory == PhotoCategory.AllPhotos)
             {

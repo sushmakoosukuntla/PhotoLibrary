@@ -9,15 +9,23 @@
     mc:Ignorable="d">
 
     <Grid>
-        <GridView Name="AlbumsPage1" ItemsSource="{x:Bind Albums}" IsItemClickEnabled="True"
-                              SelectionMode="None" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <TextBlock Grid.Row="0" x:Name="AlbumNames" Text="Albums" FontSize="22"
+                       FontWeight="Bold" FontStyle="Italic"/>
+        </RelativePanel>
+        <GridView Grid.Row="1" Name="AlbumsPage1" ItemsSource="{x:Bind Albums}" IsItemClickEnabled="True"
+                              SelectionMode="None" ItemClick="AlbumsPage1_ItemClick" >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Album">
                     <StackPanel>
                         <Image Name="AlbumsImage" Height="80" Width="80" Source="{x:Bind IconFile}" 
                                    Margin="40,45,40,10"/>
                         <TextBlock Name ="AlbumName" Text="{x:Bind AlbumType}"
-                                       FontSize="20" FontFamily="Bold" Margin="45, 0, 15, 0"/>
+                                       FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

@@ -27,9 +27,25 @@ namespace UWPPhotoLibrary
         private ObservableCollection<Album> Albums;
         public AlbumsPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
             Albums = PhotoManager.GetAllAlbums();
         }
-    }
-    
+        
+        /*When the consumer clicks on the Album(Animals,babies,fruits,flowers,nature), the object will store in e,
+         object in the sence the album properties(IconFile and Albumtype) so we are type casting the object by giving the type
+        Album.*/
+
+        private void AlbumsPage1_ItemClick(object sender, ItemClickEventArgs e)
+            
+        {
+            var album = (Album)e.ClickedItem;
+            /*here the Frame.Navigate will navigate to Allphotos page but it will not filter them according to the Albumname.
+             So that is the reason we are giving the parameter album.AlbumType also*/
+            /*In order to filter the photos, we are overiding the method OnNavigatedTo in AllPhotos.Xaml.cs page */
+            Frame.Navigate(typeof(AllPhotosPage), album.AlbumType);
+
+}
+
+}
+
 }
