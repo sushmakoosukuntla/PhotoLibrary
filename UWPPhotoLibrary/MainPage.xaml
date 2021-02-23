@@ -5,35 +5,16 @@
     xmlns:data="using:UWPPhotoLibrary.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <StackPanel Background="Beige">
+        <StackPanel Orientation="Horizontal">
 
-    <Grid Background="Beige">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <RelativePanel>
-            <Button Content="&#xE0A6;" RelativePanel.AlignLeftWithPanel="True"
-                FontFamily = "Segoe MDL2 Assets" Width="45" Name="BackButton" Visibility="Visible" 
-                    Click="BackButton_Click"/>
-            <TextBlock x:Name ="LibraryName" Text="My Photo Library" FontSize="19" Height="Auto" FontWeight="Bold"
-                       Width="Auto" RelativePanel.RightOf="BackButton" />
-        </RelativePanel>
-        <GridView Grid.Row="1" Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
-                              SelectionMode="None" ItemClick="CategoryGrid_ItemClick">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="data:Category">
-                    <StackPanel>
-                        <Image Name="Image" Height="80" Width="80" Source="{x:Bind IconFile}" 
-                                   Margin="40,45,40,10"/>
-                        <TextBlock Name ="Category Name" Text="{x:Bind PhotoCategory}"
-                                       FontSize="20" FontFamily="Bold" Margin="45, 0, 15, 0"/>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-        <Frame Background="Beige" Grid.Row="1" x:Name="NewPage" Margin="10,10,10,10" HorizontalAlignment="Center"
-               VerticalAlignment="Center" Width="1000" Height="600" Visibility="Collapsed"/>
-    </Grid>
+            <Button Name="HomeButton" Content="Home"  Click="HomeButton_Click" />
+            <Button Name="BackButton" Content="Back"  Click="BackButton_Click" />
+            <Button Name="ForwardButton" Content="Forward" Click="ForwardButton_Click" />
+            <TextBlock x:Name="MyPhotoLibrary" Text="My Photo Library" FontWeight="Medium"  FontSize="22"/>
+        </StackPanel>
+        <Frame Name="MyFrame"/>
+    </StackPanel>
+      
 </Page>

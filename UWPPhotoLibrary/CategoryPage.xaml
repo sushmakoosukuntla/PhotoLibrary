@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="UWPPhotoLibrary.CategoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPPhotoLibrary.Model"
+    xmlns:data="using:UWPPhotoLibrary.Model" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GridView Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
+                              SelectionMode="None" ItemClick="CategoryGrid_ItemClick" >
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Category">
+                    <StackPanel>
+                        <Image Name="Image" Height="80" Width="80" Source="{x:Bind IconFile}" 
+                                   Margin="40,45,40,10"/>
+                        <TextBlock Name ="Category Name" Text="{x:Bind PhotoCategory}"
+                                       FontSize="20" FontFamily="Bold" Margin="45, 0, 15, 0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

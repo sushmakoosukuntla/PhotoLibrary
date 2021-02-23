@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="UWPPhotoLibrary.AllPhotosPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPPhotoLibrary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GridView Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
+                              SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Photo">
+                    <StackPanel>
+                        <Image Name="Image" Height="80" Width="80" Source="{x:Bind ImageFile}" 
+                                   Margin="40,45,40,10" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>
