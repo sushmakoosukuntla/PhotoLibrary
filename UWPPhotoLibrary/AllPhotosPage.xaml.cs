@@ -22,14 +22,13 @@ namespace UWPPhotoLibrary
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AlbumsPage : Page
+    public sealed partial class AllPhotosPage : Page
     {
-        private ObservableCollection<Album> Albums;
-        public AlbumsPage()
+        private ObservableCollection<Photo> photos;
+        public AllPhotosPage()
         {
             this.InitializeComponent();
-            Albums = PhotoManager.GetAllAlbums();
+            photos = PhotoManager.GetAllPhotos();
         }
     }
-    
 }

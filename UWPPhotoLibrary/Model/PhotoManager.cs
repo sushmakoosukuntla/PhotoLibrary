@@ -13,8 +13,7 @@ namespace UWPPhotoLibrary.Model
         {
             //Empty list of type photo will get created in the line below and the list name is photos.
             var photos = new ObservableCollection<Photo>();
-            var allPhotos = GetPhotos();
-            photos.Clear();
+            var allPhotos = GetPhotos();            
             foreach (var photo in allPhotos)
             {
                 photos.Add(photo);
@@ -78,11 +77,11 @@ namespace UWPPhotoLibrary.Model
         private static List<Album> GetAlbums()
         {
             var albums = new List<Album>();
-            albums.Add(new Album { AlbumType = AlbumName.Animals});
-            albums.Add(new Album { AlbumType = AlbumName.Babies });
-            albums.Add(new Album { AlbumType = AlbumName.Flowers });
-            albums.Add(new Album { AlbumType = AlbumName.Fruits });
-            albums.Add(new Album { AlbumType = AlbumName.Nature });
+            albums.Add(new Album { IconFile = $"Assets/Album Icons/Animals-Icon.png", AlbumType= AlbumName.Animals });
+            albums.Add(new Album { IconFile = $"Assets/Album Icons/Babies-Icon.png", AlbumType = AlbumName.Babies });
+            albums.Add(new Album { IconFile = $"Assets/Album Icons/Flowers-Icon.png", AlbumType = AlbumName.Flowers});
+            albums.Add(new Album { IconFile = $"Assets/Album Icons/Fruits-Icon.png", AlbumType = AlbumName.Fruits });
+            albums.Add(new Album { IconFile = $"Assets/Album Icons/Nature-Icon.png", AlbumType = AlbumName.Nature });
 
             return albums;
         }
