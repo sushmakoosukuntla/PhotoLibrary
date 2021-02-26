@@ -31,11 +31,7 @@ namespace UWPPhotoLibrary
             this.InitializeComponent();
             photos = PhotoManager.GetAllPhotos();
         }
-        //public AllPhotosPage(AlbumName albumType)
-        //{
-         //   PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
-        //}
-
+        
         public ObservableCollection<Photo> GetPhotos()
         {
             return photos;
@@ -55,5 +51,37 @@ namespace UWPPhotoLibrary
             
         }
 
+        private void AllPhotosGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickItem = (Photo)e.ClickedItem;
+            /*All photos grid is different and selectedItems list is different(I have kept selection mode as multiple)
+            that is the reason selectedItems will be list*/
+            //When we select the items, selectedItems will come to the different list
+            /*When the selectedItems count is equal to 1 && the click items is equal to selectedItems[0], 
+            it means the selected items list size is equal to 1, then the favorite button will get disabled.*/
+            if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
+            {
+                FavoriteButton.IsEnabled = false;
+            }
+            else if (FavoriteButton.IsEnabled != true)
+            {
+                FavoriteButton.IsEnabled = true;
+            }
+
+
+        }
+
+        private void FavoriteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var favs = new List<Photo>();
+            var selectedFavorites = AllPhotosGrid.SelectedItems;
+            for (var i = 0; i < selectedFavorites.Count; i++)
+            {
+                favs.Add((Photo)selectedFavorites[i]);
+            }
+            Frame.Navigate(typeof(FavoritesPage), favs );
+        }
+
+      
     }
 }

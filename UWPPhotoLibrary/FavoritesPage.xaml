@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="UWPPhotoLibrary.AllPhotosPage"
+    x:Class="UWPPhotoLibrary.FavoritesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UWPPhotoLibrary"
@@ -13,12 +13,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <RelativePanel>
-            <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
-                    RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" Click="FavoriteButton_Click"/>
+            <TextBlock Name="FavoritesPage1" Text="Favorites" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+                    RelativePanel.AlignLeftWithPanel="True"/>
         </RelativePanel>
-        <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
-                              SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick" >
-
+        <GridView Grid.Row="1" Name="FavoritesGrid" ItemsSource="{x:Bind FavPhotos}" IsItemClickEnabled="True">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Photo">
                     <StackPanel>

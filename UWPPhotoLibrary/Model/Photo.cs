@@ -12,8 +12,7 @@ namespace UWPPhotoLibrary.Model
         Babies,
         Flowers,
         Fruits,
-        Nature
-        
+        Nature,              
     }
     public class Photo
     {
@@ -30,6 +29,22 @@ namespace UWPPhotoLibrary.Model
             ImageFile = $"/Assets/Images/{AlbumName}/{Name}.jpg"; // file path 
             DateCreated = DateTime.Now;
         }
+
+        public override bool Equals(object obj)
+        {
+            var value = (Photo)obj;
+            if (value.Name.Equals(Name))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+
 
     }
 }
