@@ -48,6 +48,11 @@ namespace UWPPhotoLibrary
             {
                 Frame.Navigate(typeof(AllPhotosPage));
             }
+            else if(categoryItem.PhotoCategory == PhotoCategory.Favotites)
+            {
+                
+                Frame.Navigate(typeof(FavoritesPage));
+            }
             
                        
             //LibraryName.Text = categoryItem.PhotoCategory.ToString();

@@ -6,15 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d">
+
     <StackPanel Background="Beige">
         <StackPanel Orientation="Horizontal">
 
             <Button Name="HomeButton" Content="Home"  Click="HomeButton_Click" />
             <Button Name="BackButton" Content="Back"  Click="BackButton_Click" />
             <Button Name="ForwardButton" Content="Forward" Click="ForwardButton_Click" />
-            <TextBlock x:Name="MyPhotoLibrary" Text="My Photo Library" FontWeight="Medium"  FontSize="22"/>
+            <TextBlock x:Name="MyPhotoLibrary" Text="My Photo Library" FontWeight="Medium"  FontSize="22"
+                       Margin="20,5,0,0" FontStyle="Italic"/>
         </StackPanel>
         <Frame Name="MyFrame"/>
     </StackPanel>
-      
 </Page>

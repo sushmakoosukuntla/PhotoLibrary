@@ -44,8 +44,8 @@ namespace UWPPhotoLibrary
             /*In order to filter the photos, we are overiding the method OnNavigatedTo in AllPhotos.Xaml.cs page */
             Frame.Navigate(typeof(AllPhotosPage), album.AlbumType);
 
-}
+        }
 
-}
+    }
 
 }

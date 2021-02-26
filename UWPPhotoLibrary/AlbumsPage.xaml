@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <RelativePanel>
             <TextBlock Grid.Row="0" x:Name="AlbumNames" Text="Albums" FontSize="22"
-                       FontWeight="Bold" FontStyle="Italic"/>
+                       FontWeight="Bold" FontStyle="Italic" Margin="20,5,0,0"/>
         </RelativePanel>
         <GridView Grid.Row="1" Name="AlbumsPage1" ItemsSource="{x:Bind Albums}" IsItemClickEnabled="True"
                               SelectionMode="None" ItemClick="AlbumsPage1_ItemClick" >
