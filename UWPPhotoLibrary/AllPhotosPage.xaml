@@ -14,7 +14,8 @@
         </Grid.RowDefinitions>
         <RelativePanel>
             <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
-                    RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" Click="FavoriteButton_Click"/>
+                    RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
+                     Background="Transparent" Click="FavoriteButton_Click"/>
         </RelativePanel>
         <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick" >

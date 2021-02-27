@@ -44,8 +44,20 @@ namespace UWPPhotoLibrary
         {
             if (e != null && e.Parameter != null)
             {
-                var albumType = (AlbumName)e.Parameter;
-                PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
+                if (e.Parameter.GetType() == typeof(AlbumName))
+                {
+                    var albumType = (AlbumName)e.Parameter;
+                    PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
+                }
+
+                else if (e.Parameter.GetType() == typeof(List<Photo>))
+                {
+                    var pickedPhotos = (List<Photo>)e.Parameter;
+                    foreach (var photo in pickedPhotos)
+                    {
+                        photos.Add(photo);
+                    }
+                }
             }
             // else it ddisplays all the photos without any filter
             
