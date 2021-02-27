@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,11 +27,11 @@ namespace UWPPhotoLibrary
         private IReadOnlyList<StorageFile> SelectedPhotosList;
         private static List<string> AllowedExtensions= new List<string> { ".jpg", ".png", ".gif"
         , ".jpeg"};
-        
+        private Frame Frame;
 
-        public UploadPhoto()
+        public UploadPhoto(Frame frame)
         {
-
+            Frame = frame;
             this.InitializeComponent();
             
         }
@@ -71,12 +72,16 @@ namespace UWPPhotoLibrary
             var ToBeUploadedPhotosList = new List<Photo>();
             foreach (StorageFile imageFile in SelectedPhotosList)
             {
-                var image = new Photo(imageFile.Path, imageFile.Name);
-                               
+               // var uri = new System.Uri(imageFile.Path);
+                var image = new Photo(imageFile.Path, imageFile);
                 ToBeUploadedPhotosList.Add(image);
             }
-            (Window.Current.Content as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
+           Frame.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
+
+          //  (Window.Current. as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
             
         }
+
+       
     }
 }
