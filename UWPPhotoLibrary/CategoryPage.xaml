@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GridView  Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
+        <GridView Grid.Row="1 " Name="CategoryGrid" ItemsSource="{x:Bind CategoryList}" IsItemClickEnabled="True"
                               SelectionMode="None" ItemClick="CategoryGrid_ItemClick" >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Category">

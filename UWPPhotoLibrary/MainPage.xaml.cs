@@ -52,5 +52,12 @@ namespace UWPPhotoLibrary
                 MyFrame.GoForward();
             }
         }
+
+        private async void Upload_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(typeof(AllPhotosPage));
+            var dialog = new UploadPhoto();
+            await dialog.ShowAsync();            
+        }
     }
 }
