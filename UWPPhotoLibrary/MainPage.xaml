@@ -35,7 +35,9 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <Frame Name="MyFrame"/>
+            <ScrollViewer x:Name="myScrollViewer">
+                <Frame Name="MyFrame" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility ="Auto"/>
+            </ScrollViewer>
         </StackPanel>
         
     </RelativePanel>
