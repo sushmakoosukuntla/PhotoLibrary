@@ -35,6 +35,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+            
             <Frame Name="MyFrame"/>
         </StackPanel>
         
