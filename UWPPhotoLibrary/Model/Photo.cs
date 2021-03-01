@@ -33,7 +33,7 @@ namespace UWPPhotoLibrary.Model
         public BitmapImage bmImage { get; set; }
 
         public int ID { get; set; }
-        private static int lastImageID = 0;
+        //private static int lastImageID = 0;
 
         //Below is the constructor
         public Photo()
@@ -90,37 +90,7 @@ namespace UWPPhotoLibrary.Model
         public override int GetHashCode()
         {
             return Name.GetHashCode();
-        }
-
-        /*public static async void AddImageAsync(Photo image)
-        {
-            var imageFile = image.SourceImageFile;
-            var localFolder = ApplicationData.Current.LocalFolder;
-            ImageProperties imageProperties = await imageFile.Properties.GetImagePropertiesAsync();
-            try
-            {
-                try
-                {
-                    Windows.Storage.StorageFile existingFile = await localFolder.GetFileAsync(imageFile.Name);
-                }
-                catch (FileNotFoundException)
-                {
-                    await imageFile.CopyAsync(localFolder);
-                }
-
-                image.Name = imageFile.Name;
-                image.ID = ++lastImageID;
-                
-
-            }
-            catch (ArgumentException ex)
-            {
-                var messageDialog = new MessageDialog(ex.Message);
-                await messageDialog.ShowAsync();
-                return;
-            }
-        }*/
-
+        }       
 
     }
 }

@@ -6,28 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
     mc:Ignorable="d">
+    
 
-    <Grid Background="Beige">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <RelativePanel>
-            <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RelativePanel>
+                <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
-                     Background="Transparent" Click="FavoriteButton_Click"/>
-        </RelativePanel>
-        <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
+                      Click="FavoriteButton_Click"/>
+            </RelativePanel>
+            <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="data:Photo">
-                    <Image Name="Image" Height="300" Width="200" Source="{Binding Path=bmImage}"
-                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Photo">
+                    <Image Name="Image" Margin="6" Width="150" Height="150"  Source="{Binding Path=bmImage}"                                  
+                               Stretch="Fill" DoubleTapped="Image_DoubleTapped"/>
 
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-    </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+    
 </Page>

@@ -60,5 +60,10 @@ namespace UWPPhotoLibrary
           //  MyFrame.Navigate(typeof(AllPhotosPage));
                    
         }
+
+        private void NewAlbum_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

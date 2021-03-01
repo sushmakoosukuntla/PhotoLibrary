@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
     mc:Ignorable="d">
 
-    <Grid Background="Beige">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -21,7 +21,7 @@
                 <DataTemplate x:DataType="data:Photo">
                     <StackPanel>
                         <Image Name="Image" Height="80" Width="80" Source="{x:Bind ImageFile}" 
-                                   Margin="40,45,40,10"/>
+                                   Margin="40,45,40,10" Stretch="Fill"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

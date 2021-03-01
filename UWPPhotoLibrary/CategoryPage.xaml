@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d">
 
-    <Grid Background="Beige">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -19,7 +19,7 @@
                 <DataTemplate x:DataType="data:Category">
                     <StackPanel>
                         <Image Name="Image" Height="80" Width="80" Source="{x:Bind IconFile}" 
-                                   Margin="40,45,40,10"/>
+                                   Margin="40,45,40,10" Stretch="Fill" />
                         <TextBlock Name ="Category Name" Text="{x:Bind PhotoCategory}"
                                        FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>

@@ -24,9 +24,11 @@ namespace UWPPhotoLibrary
 {
     public sealed partial class UploadPhoto : ContentDialog
     {
+        /**/
         private IReadOnlyList<StorageFile> SelectedPhotosList;
         private static List<string> AllowedExtensions= new List<string> { ".jpg", ".png", ".gif"
         , ".jpeg"};
+        /**/
         private Frame Frame;
 
         public UploadPhoto(Frame frame)
@@ -71,15 +73,12 @@ namespace UWPPhotoLibrary
         {
             var ToBeUploadedPhotosList = new List<Photo>();
             foreach (StorageFile imageFile in SelectedPhotosList)
-            {
-               // var uri = new System.Uri(imageFile.Path);
+            {  
+                /**/
                 var image = new Photo(imageFile.Path, imageFile);
                 ToBeUploadedPhotosList.Add(image);
             }
-           Frame.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
-
-          //  (Window.Current. as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
-            
+           Frame.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);                    
         }
 
        
