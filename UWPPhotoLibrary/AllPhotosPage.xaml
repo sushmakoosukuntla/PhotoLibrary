@@ -6,33 +6,48 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
     mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Visible"  >
 
-    <Grid Background="Beige">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <RelativePanel>
-            <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+        <Grid Background="Beige">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <RelativePanel>
+                <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
                      Background="Transparent" Click="FavoriteButton_Click"/>
-        </RelativePanel>
-        <RelativePanel>
-            <Button Content="Show Full Screen" Name="FullScreenButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+            </RelativePanel>
+            <RelativePanel>
+                <Button Content="Show Full Screen" Name="FullScreenButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignRightWithPanel="True" IsEnabled="False" 
-                     Background="Transparent" Click="FullScreenButton_Click"/>
-        </RelativePanel>
-        <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
+                     Background="Transparent" Click="FullScreenButton_Click"
+                        ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled"
+                       />
+            </RelativePanel>
+            <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled">
+               
 
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="data:Photo">
-                    <Image Name="Image" Height="300" Width="200" Source="{Binding Path=bmImage}"
+
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Photo">
+                        <Image Name="Image" Height="300" Width="200" Source="{Binding Path=bmImage}"
                                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
 
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-    </Grid>
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+
+            </GridView>
+
+        </Grid>
+
+    </ScrollViewer>
+    
 </Page>

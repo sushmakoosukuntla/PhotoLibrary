@@ -36,10 +36,7 @@ namespace UWPPhotoLibrary.Model
         private static int lastImageID = 0;
 
         //Below is the constructor
-        public Photo()
-        {
-
-        }
+      
         public Photo(String name, AlbumName albumName)
         {
 
