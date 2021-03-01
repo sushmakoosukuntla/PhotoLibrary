@@ -74,10 +74,12 @@ namespace UWPPhotoLibrary
             if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
             {
                 FavoriteButton.IsEnabled = false;
+                FullScreenButton.IsEnabled = false;
             }
             else if (FavoriteButton.IsEnabled != true)
             {
                 FavoriteButton.IsEnabled = true;
+                FullScreenButton.IsEnabled = true;
             }
 
 
@@ -92,6 +94,18 @@ namespace UWPPhotoLibrary
                 favs.Add((Photo)selectedFavorites[i]);
             }
             Frame.Navigate(typeof(FavoritesPage), favs );
+        }
+
+        
+        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            var SelectedPhotosList = new List<Photo>();
+            var SelectedPhotos = AllPhotosGrid.SelectedItems;
+            for (var i = 0; i < SelectedPhotos.Count; i++)
+            {
+                SelectedPhotosList.Add((Photo)SelectedPhotos[i]);
+            }
+            Frame.Navigate(typeof(SingleImage), SelectedPhotosList);
         }
 
       

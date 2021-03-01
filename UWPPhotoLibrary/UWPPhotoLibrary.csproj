@@ -139,6 +139,9 @@
     <Compile Include="Model\Photo.cs" />
     <Compile Include="Model\PhotoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleImage.xaml.cs">
+      <DependentUpon>SingleImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UploadPhoto.xaml.cs">
       <DependentUpon>UploadPhoto.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SingleImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UploadPhoto.xaml">
       <SubType>Designer</SubType>
