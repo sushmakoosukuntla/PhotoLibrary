@@ -33,6 +33,7 @@ namespace UWPPhotoLibrary
         {
             Frame = frame;
             this.InitializeComponent();
+        //    SelectedPhotosList = new IReadOnlyList<StorageFile>();
             
         }
 
@@ -67,7 +68,7 @@ namespace UWPPhotoLibrary
             }
         }
 
-        private void OpenButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void OpenButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             var ToBeUploadedPhotosList = new List<Photo>();
             foreach (StorageFile imageFile in SelectedPhotosList)

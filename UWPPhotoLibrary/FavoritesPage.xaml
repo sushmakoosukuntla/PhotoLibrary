@@ -20,8 +20,8 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Photo">
                     <StackPanel>
-                        <Image Name="Image" Height="80" Width="80" Source="{x:Bind ImageFile}" 
-                                   Margin="40,45,40,10"/>
+                        <Image Name="Image" Height="175" Width="200"  VerticalAlignment="Center" HorizontalAlignment="Center"  Source="{x:Bind bmImage}" 
+                                    Margin="10,0,0,0" Stretch="Fill" DoubleTapped="Image_DoubleTapped"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

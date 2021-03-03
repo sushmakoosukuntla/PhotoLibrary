@@ -62,6 +62,27 @@ namespace UWPPhotoLibrary
                 
                 FavPhotos.Add(value);
             }
-        }                
+        }
+
+        private void Image_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            int startingPositionPhoto = 0;
+            //var doubleTapped = new Photo();
+            var fpics = new ObservableCollection<Photo>();
+            var selectedPhoto = (Photo)FavoritesGrid.SelectedItems[0];
+            foreach(var pic in FavCollectionsSet)
+            {
+                fpics.Add(pic);
+
+            }
+            if (FavCollectionsSet.Contains(selectedPhoto))
+            {
+                startingPositionPhoto = fpics.IndexOf(selectedPhoto);
+            }
+            var Ps = new PhotoSelection();
+            Ps.SelectedPhotoPosition = startingPositionPhoto;
+            Ps.Photos = fpics;
+            Frame.Navigate(typeof(SingleImage), Ps);
+        }
     }
 }
