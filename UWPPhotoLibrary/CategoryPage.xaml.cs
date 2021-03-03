@@ -23,41 +23,70 @@ namespace UWPPhotoLibrary
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class CategoryPage : Page
-    {        
+    {
         private List<Category> CategoryList;
+
+        private static HashSet<Category> CatrgorySet = new HashSet<Category>();
         public CategoryPage()
         {
             this.InitializeComponent();
-            
-            //After initializing the app, we can see category grid.
-            
-            CategoryList = new List<Category>();
-            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = PhotoCategory.Albums });
-            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = PhotoCategory.AllPhotos });
-            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = PhotoCategory.Favotites });
 
-        }      
+            //After initializing the app, we can see category grid.
+
+            CategoryList = new List<Category>();
+            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = "Albums" });
+            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = "AllPhotos" });
+            CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = "Favotites" });
+
+            foreach (var value in CatrgorySet)
+            {
+
+                CategoryList.Add(value);
+            }
+        }
         private void CategoryGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
             var categoryItem = (Category)e.ClickedItem;
-            if(categoryItem.PhotoCategory == PhotoCategory.Albums)
+            if (categoryItem.PhotoCategory == "Albums")
             {
-                Frame.Navigate(typeof(AlbumsPage));                
-            } 
-            else if(categoryItem.PhotoCategory == PhotoCategory.AllPhotos)
+                Frame.Navigate(typeof(AlbumsPage));
+            }
+            else if (categoryItem.PhotoCategory == "AllPhotos")
             {
                 Frame.Navigate(typeof(AllPhotosPage));
             }
-            else if(categoryItem.PhotoCategory == PhotoCategory.Favotites)
+            else if (categoryItem.PhotoCategory == "Favotites")
             {
-                
+
                 Frame.Navigate(typeof(FavoritesPage));
             }
-            
-                       
-            //LibraryName.Text = categoryItem.PhotoCategory.ToString();
-            
+            else
+            {
+
+               // Frame.Navigate(typeof(CustomAlbum));
+            }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e != null && e.Parameter != null)
+            {
+                var AlbumName = (String)e.Parameter;
+
+                CategoryList.Clear();
+                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = "Albums" });
+                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = "AllPhotos" });
+                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = "Favotites" });
+
+                CatrgorySet.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = AlbumName });
+
+                foreach (var value in CatrgorySet)
+                {
+
+                    CategoryList.Add(value);
+                }
+            }
+
         }
     }
 }
-        
+

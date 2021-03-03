@@ -60,5 +60,13 @@ namespace UWPPhotoLibrary
           //  MyFrame.Navigate(typeof(AllPhotosPage));
                    
         }
+
+        private async void CreateAlbum_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new CreateAlbum(MyFrame);
+            await dialog.ShowAsync();
+
+
+        }
     }
 }
