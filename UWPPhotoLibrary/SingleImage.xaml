@@ -7,25 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
     mc:Ignorable="d">
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            
+    
 
-        </CommandBar>
-    </Page.BottomAppBar>
-                <Canvas>
-                    <FlipView x:Name="ImageView" ItemsSource="{x:Bind Singleimage}" >
-                        <FlipView.ItemTemplate>
-                            <DataTemplate x:DataType="data:Photo">
-                                <Image 
+    <Canvas>
+        <FlipView x:Name="ImageView" ItemsSource="{x:Bind SPhotos}" >
+            <FlipView.ItemTemplate>
+                <DataTemplate x:DataType="data:Photo">
+                    <Image 
                        Source="{Binding Path=bmImage}"
                        Stretch="Uniform" />
-                            </DataTemplate>
-                        </FlipView.ItemTemplate>
-                    </FlipView>
-                </Canvas>
-
-           
-
-
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView> 
+    </Canvas>
 </Page>

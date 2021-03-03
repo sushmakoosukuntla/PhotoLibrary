@@ -27,7 +27,10 @@ namespace UWPPhotoLibrary
 
     public sealed partial class SingleImage : Page
     {
-        ObservableCollection<Photo> Singleimage = new ObservableCollection<Photo>();
+        ObservableCollection<Photo> SPhotos = new ObservableCollection<Photo>();
+        //Photo FullImage;
+        
+        
 
         public SingleImage()
         {
@@ -40,15 +43,20 @@ namespace UWPPhotoLibrary
         {
             if (e != null && e.Parameter != null)
             {
-                if (e.Parameter.GetType() == typeof(List<Photo>))
+                if (e.Parameter.GetType() == typeof(PhotoSelection))
                 {
-                    var pickedPhotos = (List<Photo>)e.Parameter;
-                    foreach (var photo in pickedPhotos)
+                    var photoSelection = (PhotoSelection)e.Parameter;
+                    SPhotos.Clear();
+                    for (var i = 0; i < photoSelection.Photos.Count; i++)
                     {
-                        Singleimage.Add(photo);
+                        SPhotos.Add(photoSelection.Photos[i]);
                     }
+                    ImageView.SelectedIndex = photoSelection.SelectedPhotoPosition;
                 }
-            }
+                 
+            } 
         }
+
+      
     }
 }

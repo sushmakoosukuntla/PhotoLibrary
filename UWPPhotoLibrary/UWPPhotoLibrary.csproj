@@ -138,6 +138,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Photo.cs" />
     <Compile Include="Model\PhotoManager.cs" />
+    <Compile Include="Model\PhotoSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleImage.xaml.cs">
       <DependentUpon>SingleImage.xaml</DependentUpon>

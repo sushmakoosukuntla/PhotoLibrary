@@ -24,12 +24,16 @@ namespace UWPPhotoLibrary
     /// </summary>
     public sealed partial class AllPhotosPage : Page
     {
-        private ObservableCollection<Photo> photos;
-      
+        private static ObservableCollection<Photo> staticPhotos = PhotoManager.GetAllPhotos();
+        public ObservableCollection<Photo> photos;
         public AllPhotosPage()
         {
             this.InitializeComponent();
-            photos = PhotoManager.GetAllPhotos();
+            photos = new ObservableCollection<Photo>();
+            foreach (var p in staticPhotos)
+            {
+                photos.Add(p);
+            }
         }
         
         public ObservableCollection<Photo> GetPhotos()
@@ -55,11 +59,17 @@ namespace UWPPhotoLibrary
                     var pickedPhotos = (List<Photo>)e.Parameter;
                     foreach (var photo in pickedPhotos)
                     {
+                        staticPhotos.Add(photo);
                         photos.Add(photo);
                     }
+                    // clear the photos for grid to be empty
+                //    photos.Clear();
+                //    foreach (var p in staticPhotos) {
+                //        photos.Add(p);
+                //    }
                 }
             }
-            // else it ddisplays all the photos without any filter
+            // else it displays all the photos without any filter
             
         }
 
@@ -74,12 +84,12 @@ namespace UWPPhotoLibrary
             if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
             {
                 FavoriteButton.IsEnabled = false;
-                FullScreenButton.IsEnabled = false;
+                
             }
             else if (FavoriteButton.IsEnabled != true)
             {
                 FavoriteButton.IsEnabled = true;
-                FullScreenButton.IsEnabled = true;
+                
             }
 
 
@@ -97,7 +107,7 @@ namespace UWPPhotoLibrary
         }
 
         
-        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        /*private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
             var SelectedPhotosList = new List<Photo>();
             var SelectedPhotos = AllPhotosGrid.SelectedItems;
@@ -106,8 +116,35 @@ namespace UWPPhotoLibrary
                 SelectedPhotosList.Add((Photo)SelectedPhotos[i]);
             }
             Frame.Navigate(typeof(SingleImage), SelectedPhotosList);
-        }
+        }*/
 
-      
+        private void Image_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            int startingPositionPhoto = 0;
+            //var doubleTapped = new Photo();
+            var selectedPhoto = (Photo)AllPhotosGrid.SelectedItems[0];
+            if (photos.Contains(selectedPhoto))
+            {
+                 startingPositionPhoto = photos.IndexOf(selectedPhoto);
+            }
+            var Ps = new PhotoSelection();
+            Ps.SelectedPhotoPosition = startingPositionPhoto;
+            Ps.Photos = photos;
+            /*List<Photo> newListPhotos = new List<Photo>();
+            newListPhotos.Add(selectedPhoto);
+            
+            for (var i = startingPositionPhoto + 1; i<photos.Count; i++)
+            {
+                newListPhotos.Add(photos[i]);
+               
+            }
+            for(var i = 0; i< startingPositionPhoto; i++)
+            {
+                newListPhotos.Add(photos[i]);
+                
+            }*/
+            Frame.Navigate(typeof(SingleImage), Ps);
+        }
     }
+    
 }
