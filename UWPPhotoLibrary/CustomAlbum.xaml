@@ -11,7 +11,33 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer VerticalScrollBarVisibility="Visible">
-        <Grid>
+
+        <Grid Background="Beige">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RelativePanel>
+                <Button Content="" Name="CustomAlbumButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+                    RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
+                     Background="Transparent" Click="CustomAlbumButton_Click"/>
+            </RelativePanel>
+
+            <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
+                              SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Photo">
+                        <StackPanel>
+                            <Image Name="Image" Height="300" Width="200" Source="{Binding Path=bmImage}"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock Name="ImageName" FontSize="20" Text="{x:Bind Name}"/>
+                        </StackPanel>
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </Grid>
     </ScrollViewer>
 </Page>

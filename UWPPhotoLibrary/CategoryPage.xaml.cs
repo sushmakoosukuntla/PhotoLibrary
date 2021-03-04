@@ -63,7 +63,7 @@ namespace UWPPhotoLibrary
             else
             {
 
-               // Frame.Navigate(typeof(CustomAlbum));
+               Frame.Navigate(typeof(CustomAlbum), categoryItem.PhotoCategory);
             }
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)

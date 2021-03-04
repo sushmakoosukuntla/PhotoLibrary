@@ -25,10 +25,27 @@ namespace UWPPhotoLibrary
     public sealed partial class CustomAlbum : Page
     {
         private ObservableCollection<Photo> photos;
+
+        private static HashSet<Photo> PhotoSet = new HashSet<Photo>();
+        private static string AlbumContent;
         public CustomAlbum()
         {
             this.InitializeComponent();
-            photos = PhotoManager.GetAllPhotos();
+            if (PhotoSet.Count<1)
+            {
+                photos = PhotoManager.GetAllPhotos();
+            }
+            else
+            {
+                foreach (var value in PhotoSet)
+                {
+                    CustomAlbumButton.Content = AlbumContent;
+                    photos = PhotoManager.GetAllPhotos();
+                    photos.Clear();
+                    photos.Add(value);
+                }
+            }
+            
         }
 
         public ObservableCollection<Photo> GetPhotos()
@@ -49,10 +66,20 @@ namespace UWPPhotoLibrary
                 else if (e.Parameter.GetType() == typeof(List<Photo>))
                 {
                     var pickedPhotos = (List<Photo>)e.Parameter;
+                    photos.Clear();
+                    PhotoSet.Clear();
                     foreach (var photo in pickedPhotos)
                     {
                         photos.Add(photo);
+                        PhotoSet.Add(photo);
                     }
+
+                }
+                else if (e.Parameter.GetType() == typeof(string))
+                {
+                    var albumname = (string)e.Parameter;
+                    CustomAlbumButton.Content = "Add Photos to " +albumname;
+                    AlbumContent = (string)CustomAlbumButton.Content;
                 }
             }
         }
@@ -60,12 +87,33 @@ namespace UWPPhotoLibrary
         private void CustomAlbumButton_Click(object sender, RoutedEventArgs e)
         {
             var favs = new List<Photo>();
-           // var selectedFavorites = AllPhotosGrid.SelectedItems;
-            //for (var i = 0; i < selectedFavorites.Count; i++)
-           // {
-             //   favs.Add((Photo)selectedFavorites[i]);
-           // }
+            var selectedFavorites = AllPhotosGrid.SelectedItems;
+            for (var i = 0; i < selectedFavorites.Count; i++)
+             {
+              favs.Add((Photo)selectedFavorites[i]);
+             }
             Frame.Navigate(typeof(CustomAlbum), favs);
+        }
+
+        private void AllPhotosGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickItem = (Photo)e.ClickedItem;
+            /*All photos grid is different and selectedItems list is different(I have kept selection mode as multiple)
+            that is the reason selectedItems will be list*/
+            //When we select the items, selectedItems will come to the different list
+            /*When the selectedItems count is equal to 1 && the click items is equal to selectedItems[0], 
+            it means the selected items list size is equal to 1, then the favorite button will get disabled.*/
+            if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
+            {
+                CustomAlbumButton.IsEnabled = false;
+            }
+            else if (CustomAlbumButton.IsEnabled != true)
+            {
+                CustomAlbumButton.IsEnabled = true;
+
+            }
+
+
         }
     }
 }
