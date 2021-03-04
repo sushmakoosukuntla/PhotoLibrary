@@ -24,7 +24,7 @@
                     <StackPanel>
                         <Image Name="AlbumsImage" Height="80" Width="80" Source="{x:Bind IconFile}" 
                                    Margin="40,45,40,10"/>
-                        <TextBlock Name ="AlbumName" Text="{x:Bind AlbumType}"
+                        <TextBlock Name ="AlbumName" Text="{x:Bind AlbumName}"
                                        FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>
                 </DataTemplate>

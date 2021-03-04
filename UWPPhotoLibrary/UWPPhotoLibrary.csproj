@@ -139,6 +139,9 @@
     <Compile Include="Model\Photo.cs" />
     <Compile Include="Model\PhotoManager.cs" />
     <Compile Include="Model\PhotoSelection.cs" />
+    <Compile Include="NewAlbum.xaml.cs">
+      <DependentUpon>NewAlbum.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleImage.xaml.cs">
       <DependentUpon>SingleImage.xaml</DependentUpon>
@@ -153,10 +156,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Album Icons\AddAlbum-Icon.png" />
     <Content Include="Assets\Album Icons\Animals-Icon.png" />
     <Content Include="Assets\Album Icons\Babies-icon.png" />
     <Content Include="Assets\Album Icons\Flowers-icon.png" />
+    <Content Include="Assets\Album Icons\Folders-Windows-Folder-icon.png" />
     <Content Include="Assets\Album Icons\Fruits-icon.png" />
     <Content Include="Assets\Album Icons\Nature-icon.png" />
     <Content Include="Assets\Images\Animals\Animals1.jpg" />
@@ -204,6 +207,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SingleImage.xaml">
       <SubType>Designer</SubType>

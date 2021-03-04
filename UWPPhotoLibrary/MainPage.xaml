@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d">
-    <RelativePanel>
+    <ScrollViewer x:Name="Scroll">
+        <RelativePanel>
 
         <StackPanel Background="Beige">
             <StackPanel Orientation="Horizontal">
@@ -28,7 +29,8 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="NewAlbum" Width="180" Height="50" RelativePanel.RightOf="Upload" Background="Transparent" >
+                <Button x:Name="NewAlbum" Width="180" Height="50" RelativePanel.RightOf="Upload" Background="Transparent"
+                        Click="NewAlbum_Click">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <FontIcon Margin="10,0,0,0" FontFamily="Segoe MDL2 Assets"  FontSize="16"  Glyph="&#59636;"/>
                         <TextBlock Text="Create Album" Margin="10,0,0,0"  Width="200" FontSize="14" VerticalAlignment="Center" />
@@ -39,9 +41,10 @@
             
             <Frame Name="MyFrame"/>
 
-        </StackPanel>
+            </StackPanel>
         
-    </RelativePanel>
+        </RelativePanel>
+   </ScrollViewer>
 
 
 </Page>

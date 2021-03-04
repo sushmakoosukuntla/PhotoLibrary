@@ -77,11 +77,11 @@ namespace UWPPhotoLibrary.Model
         private static List<Album> GetAlbums()
         {
             var albums = new List<Album>();
-            albums.Add(new Album { IconFile = $"Assets/Album Icons/Animals-Icon.png", AlbumType= AlbumName.Animals });
-            albums.Add(new Album { IconFile = $"Assets/Album Icons/Babies-Icon.png", AlbumType = AlbumName.Babies });
-            albums.Add(new Album { IconFile = $"Assets/Album Icons/Flowers-Icon.png", AlbumType = AlbumName.Flowers});
-            albums.Add(new Album { IconFile = $"Assets/Album Icons/Fruits-Icon.png", AlbumType = AlbumName.Fruits });
-            albums.Add(new Album { IconFile = $"Assets/Album Icons/Nature-Icon.png", AlbumType = AlbumName.Nature });
+            albums.Add(new Album ($"Assets/Album Icons/Animals-Icon.png", AlbumName.Animals));
+            albums.Add(new Album ($"Assets/Album Icons/Babies-Icon.png", AlbumName.Babies));
+            albums.Add(new Album ($"Assets/Album Icons/Flowers-Icon.png", AlbumName.Flowers));
+            albums.Add(new Album ($"Assets/Album Icons/Fruits-Icon.png", AlbumName.Fruits));
+            albums.Add(new Album ($"Assets/Album Icons/Nature-Icon.png", AlbumName.Nature ));
 
             return albums;
         }

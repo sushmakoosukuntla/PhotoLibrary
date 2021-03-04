@@ -25,7 +25,7 @@ namespace UWPPhotoLibrary
     public sealed partial class AllPhotosPage : Page
     {
         private static ObservableCollection<Photo> staticPhotos = PhotoManager.GetAllPhotos();
-        public ObservableCollection<Photo> photos;
+        public ObservableCollection<Photo> photos;        
         public AllPhotosPage()
         {
             this.InitializeComponent();
@@ -41,9 +41,9 @@ namespace UWPPhotoLibrary
             return photos;
         }
 
-        /*Below If we dont overide OnNavigatedTo method in this page(AllPhotosPage), There wont be any function to perform and 
-         the page will display allPhotos without any filter. 
-        So, actully we need filter in that page, so we are calling GetPhotosByCategory from photomanager*/
+        /*Below If we dont overide OnNavigatedTo method in this page(AllPhotosPage), There wont be any function 
+            to perform and the page will display allPhotos without any filter. 
+            So, actully we need filter in that page, so we are calling GetPhotosByCategory from photomanager*/
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e != null && e.Parameter != null)
@@ -62,11 +62,6 @@ namespace UWPPhotoLibrary
                         staticPhotos.Add(photo);
                         photos.Add(photo);
                     }
-                    // clear the photos for grid to be empty
-                //    photos.Clear();
-                //    foreach (var p in staticPhotos) {
-                //        photos.Add(p);
-                //    }
                 }
             }
             // else it displays all the photos without any filter
@@ -130,20 +125,12 @@ namespace UWPPhotoLibrary
             var Ps = new PhotoSelection();
             Ps.SelectedPhotoPosition = startingPositionPhoto;
             Ps.Photos = photos;
-            /*List<Photo> newListPhotos = new List<Photo>();
-            newListPhotos.Add(selectedPhoto);
-            
-            for (var i = startingPositionPhoto + 1; i<photos.Count; i++)
-            {
-                newListPhotos.Add(photos[i]);
-               
-            }
-            for(var i = 0; i< startingPositionPhoto; i++)
-            {
-                newListPhotos.Add(photos[i]);
-                
-            }*/
             Frame.Navigate(typeof(SingleImage), Ps);
+        }
+
+        private void AddToAlbum_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
     
