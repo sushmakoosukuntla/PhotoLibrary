@@ -29,7 +29,8 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="NewAlbum" Width="180" Height="50" RelativePanel.RightOf="Upload" Background="Transparent" >
+                <Button x:Name="NewAlbum" Width="180" Height="50" RelativePanel.RightOf="Upload" Background="Transparent"
+                        Click="NewAlbum_Click">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <FontIcon Margin="10,0,0,0" FontFamily="Segoe MDL2 Assets"  FontSize="16"  Glyph="&#59636;"/>
                         <TextBlock Text="Create Album" Margin="10,0,0,0"  Width="200" FontSize="14" VerticalAlignment="Center" />

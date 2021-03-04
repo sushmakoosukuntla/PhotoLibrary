@@ -32,9 +32,7 @@ namespace UWPPhotoLibrary
         public UploadPhoto(Frame frame)
         {
             Frame = frame;
-            this.InitializeComponent();
-        //    SelectedPhotosList = new IReadOnlyList<StorageFile>();
-            
+            this.InitializeComponent();        
         }
 
         
@@ -68,7 +66,7 @@ namespace UWPPhotoLibrary
             }
         }
 
-        private async void OpenButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void OpenButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             var ToBeUploadedPhotosList = new List<Photo>();
             foreach (StorageFile imageFile in SelectedPhotosList)
@@ -79,9 +77,8 @@ namespace UWPPhotoLibrary
             }
            Frame.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
 
-          //  (Window.Current. as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
-            
-        }
+          
+        } 
 
        
     }

@@ -9,10 +9,10 @@
 
     
 
-    <Canvas>
-        <FlipView x:Name="ImageView" ItemsSource="{x:Bind SPhotos}" >
+    <Canvas >
+        <FlipView x:Name="ImageView" ItemsSource="{x:Bind SPhotos}" Background="Black">
             <FlipView.ItemTemplate>
-                <DataTemplate x:DataType="data:Photo">
+                <DataTemplate x:DataType="data:Photo" >
                     <Image 
                        Source="{Binding Path=bmImage}"
                        Stretch="Uniform" />
