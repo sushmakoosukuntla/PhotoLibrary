@@ -16,18 +16,32 @@
             <RelativePanel>
                 <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
-                     Background="Beige" Click="FavoriteButton_Click"/>
-                <ComboBox RelativePanel.RightOf="FavoriteButton" PlaceholderText="Move to Album"/>
+                     Background="LightGreen" Click="FavoriteButton_Click" Margin="30,10,10,10"/>
+                <ComboBox Name="ComboAlbums" RelativePanel.RightOf="FavoriteButton" PlaceholderText="Add to Album" ItemsSource="{x:Bind hashAlbums}"
+                          SelectionChanged="ComboBox_SelectionChanged" Background="LightGreen"  IsEnabled="False" 
+                          Margin="30,10,10,10">
+                <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="data:Album">
+                            <TextBlock Text="{Binding AlbumName}">
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
             </RelativePanel>
             <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-                <GridView.ItemTemplate>
+                <GridView.ItemTemplate> 
                     <DataTemplate x:DataType="data:Photo">
-                        <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
-                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Stretch="Fill"
+                        <StackPanel>
+                            <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,10,10,10" Stretch="Fill"
                            IsDoubleTapEnabled="True" DoubleTapped="Image_DoubleTapped"/>
+                            <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
+                        </StackPanel>
+
 
                     </DataTemplate>
                 </GridView.ItemTemplate>

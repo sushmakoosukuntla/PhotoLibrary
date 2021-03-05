@@ -12,23 +12,25 @@ namespace UWPPhotoLibrary.Model
         public  AlbumName AlbumType  {get; set;}   
         public string AlbumName { get; set; }
         public string IconFile { get; set; }
+        public List<Photo> AlbumListPhotos { get; set; }
         
         //Below is the constructor
         public Album()
         {
-
+            AlbumListPhotos = new List<Photo>();
         }
-        public Album(String iconFile, string AlbumName)
+        public Album(String iconFile, string AlbumName):this()
         {
             IconFile = iconFile;
             this.AlbumName = AlbumName;
         }
 
-        public Album(String iconFile, AlbumName albumName)
+        public Album(String iconFile, AlbumName albumName):this()
         {
             IconFile = iconFile;
             this.AlbumName = albumName.ToString();
-        }
+        } 
+        
 
         public override bool Equals(object obj)
         {
