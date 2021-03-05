@@ -22,6 +22,11 @@
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
                      Background="Transparent" Click="CustomAlbumButton_Click"/>
             </RelativePanel>
+            <RelativePanel>
+                <Button Content="Show Full Screen" Name="FullScreenButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+                    RelativePanel.AlignRightWithPanel="True" IsEnabled="False" 
+                     Background="Transparent" Click="FullScreenButton_Click"/>
+            </RelativePanel>
 
             <GridView Grid.Row="1" Name="AllPhotosGrid" ItemsSource="{x:Bind photos}" IsItemClickEnabled="True"
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"

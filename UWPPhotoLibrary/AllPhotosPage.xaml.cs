@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UWPPhotoLibrary.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,7 +26,8 @@ namespace UWPPhotoLibrary
     public sealed partial class AllPhotosPage : Page
     {
         private ObservableCollection<Photo> photos;
-      
+        private IReadOnlyList<StorageFile> SelectedPhotosList;
+
         public AllPhotosPage()
         {
             this.InitializeComponent();
@@ -108,6 +110,8 @@ namespace UWPPhotoLibrary
             Frame.Navigate(typeof(SingleImage), SelectedPhotosList);
         }
 
-      
+       
+
+
     }
 }

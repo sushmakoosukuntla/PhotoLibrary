@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UWPPhotoLibrary.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,27 +26,28 @@ namespace UWPPhotoLibrary
     public sealed partial class CustomAlbum : Page
     {
         private ObservableCollection<Photo> photos;
+        private IReadOnlyList<StorageFile> SelectedPhotosList;
 
         private static HashSet<Photo> PhotoSet = new HashSet<Photo>();
         private static string AlbumContent;
         public CustomAlbum()
         {
             this.InitializeComponent();
-            if (PhotoSet.Count<1)
+            if (PhotoSet.Count < 1)
             {
                 photos = PhotoManager.GetAllPhotos();
             }
             else
             {
+                photos = PhotoManager.GetAllPhotos();
+                photos.Clear();
                 foreach (var value in PhotoSet)
                 {
                     CustomAlbumButton.Content = AlbumContent;
-                    photos = PhotoManager.GetAllPhotos();
-                    photos.Clear();
                     photos.Add(value);
                 }
             }
-            
+
         }
 
         public ObservableCollection<Photo> GetPhotos()
@@ -78,7 +80,7 @@ namespace UWPPhotoLibrary
                 else if (e.Parameter.GetType() == typeof(string))
                 {
                     var albumname = (string)e.Parameter;
-                    CustomAlbumButton.Content = "Add Photos to " +albumname;
+                    CustomAlbumButton.Content = "Add Photos to " + albumname;
                     AlbumContent = (string)CustomAlbumButton.Content;
                 }
             }
@@ -86,13 +88,18 @@ namespace UWPPhotoLibrary
 
         private void CustomAlbumButton_Click(object sender, RoutedEventArgs e)
         {
-            var favs = new List<Photo>();
-            var selectedFavorites = AllPhotosGrid.SelectedItems;
-            for (var i = 0; i < selectedFavorites.Count; i++)
-             {
-              favs.Add((Photo)selectedFavorites[i]);
-             }
-            Frame.Navigate(typeof(CustomAlbum), favs);
+            var custom = new List<Photo>();
+            var CustomImage = AllPhotosGrid.SelectedItems;
+            for (var i = 0; i < CustomImage.Count; i++)
+            {
+                custom.Add((Photo)CustomImage[i]);
+
+            }
+            Frame.Navigate(typeof(CustomAlbum), custom);
+
+
+
+
         }
 
         private void AllPhotosGrid_ItemClick(object sender, ItemClickEventArgs e)
@@ -114,6 +121,28 @@ namespace UWPPhotoLibrary
             }
 
 
+
         }
+
+       
+        private void FullScreenButton_Click(object sender, RoutedEventArgs e)
+        {
+            var custom = new List<Photo>();
+            var CustomImage = AllPhotosGrid.SelectedItems;
+            for (var i = 0; i < CustomImage.Count; i++)
+            {
+                custom.Add((Photo)CustomImage[i]);
+
+            }
+
+        }
+
+
     }
 }
+
+
+        
+
+    
+

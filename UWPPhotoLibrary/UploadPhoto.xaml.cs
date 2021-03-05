@@ -25,18 +25,20 @@ namespace UWPPhotoLibrary
     public sealed partial class UploadPhoto : ContentDialog
     {
         private IReadOnlyList<StorageFile> SelectedPhotosList;
-        private static List<string> AllowedExtensions= new List<string> { ".jpg", ".png", ".gif"
+        private static List<string> AllowedExtensions = new List<string> { ".jpg", ".png", ".gif"
         , ".jpeg"};
         private Frame Frame;
 
-        public UploadPhoto(Frame frame)
+        public  UploadPhoto(Frame frame)
         {
             Frame = frame;
             this.InitializeComponent();
-            
+
+         
+
         }
 
-        
+
 
         private async void ChooseFile_Click(object sender, RoutedEventArgs e)
         {
@@ -46,7 +48,7 @@ namespace UWPPhotoLibrary
             /*for FileOpenPicker there are many properties, ViewMode and SuggestedStartLocation
              are couple of them*/
             Fop.ViewMode = PickerViewMode.List;
-            Fop.SuggestedStartLocation= PickerLocationId.PicturesLibrary;
+            Fop.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
 
             /*We should specify the type of files we wanted to open. For this i have created the 
              *static property(private static List<string> AllowedExtensions= 
@@ -54,9 +56,9 @@ namespace UWPPhotoLibrary
              have added them to FileTypeFilter by using foreach loop*/
 
             foreach (var Extension in AllowedExtensions)
-                Fop.FileTypeFilter.Add(Extension);     
-            
-            SelectedPhotosList =  await Fop.PickMultipleFilesAsync();
+                Fop.FileTypeFilter.Add(Extension);
+
+            SelectedPhotosList = await Fop.PickMultipleFilesAsync();
             if (SelectedPhotosList != null && SelectedPhotosList.Count > 0)
             {
                 foreach (StorageFile file in SelectedPhotosList)
@@ -72,16 +74,23 @@ namespace UWPPhotoLibrary
             var ToBeUploadedPhotosList = new List<Photo>();
             foreach (StorageFile imageFile in SelectedPhotosList)
             {
-               // var uri = new System.Uri(imageFile.Path);
+                // var uri = new System.Uri(imageFile.Path);
                 var image = new Photo(imageFile.Path, imageFile);
                 ToBeUploadedPhotosList.Add(image);
-            }
-           Frame.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
 
-          //  (Window.Current. as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
+            }
+           
+                
             
+                Frame.Navigate(typeof(CustomAlbum), ToBeUploadedPhotosList);
+            
+           
+           
+
+            //(Window.Current. as Frame)?.Navigate(typeof(AllPhotosPage), ToBeUploadedPhotosList);
+
         }
 
-       
+        
     }
 }

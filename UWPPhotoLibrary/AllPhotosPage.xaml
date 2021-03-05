@@ -31,7 +31,7 @@
                 <DataTemplate x:DataType="data:Photo">
                     <StackPanel>
                         <Image Name="Image" Height="300" Width="200" Source="{Binding Path=bmImage}"
-                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0"/>
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" />
                     <TextBlock Name="ImageName" FontSize="20" Text="{x:Bind Name}"/>
                     </StackPanel>
 
