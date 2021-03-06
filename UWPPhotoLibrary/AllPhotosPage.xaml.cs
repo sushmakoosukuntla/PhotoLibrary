@@ -26,7 +26,9 @@ namespace UWPPhotoLibrary
     {
         private static ObservableCollection<Photo> staticPhotos = PhotoManager.GetAllPhotos();
         public ObservableCollection<Photo> photos;
-        private HashSet<Album> hashAlbums;
+        private HashSet<Album> hashAlbums = new HashSet<Album>();
+
+
         public AllPhotosPage()
         {
             this.InitializeComponent();
@@ -81,12 +83,14 @@ namespace UWPPhotoLibrary
             if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
             {
                 FavoriteButton.IsEnabled = false;
-                
+                ComboAlbums.IsEnabled = false;
+
+
             }
             else if (FavoriteButton.IsEnabled != true)
             {
                 FavoriteButton.IsEnabled = true;
-                
+                ComboAlbums.IsEnabled = true;
             }
 
 
@@ -130,8 +134,25 @@ namespace UWPPhotoLibrary
             Frame.Navigate(typeof(SingleImage), Ps);
         }
 
-        private void AddToAlbum_Click(object sender, RoutedEventArgs e)
+     
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (e != null && e.AddedItems != null)
+            {
+                var album = (Album)ComboAlbums.SelectedItem;               
+                var albumPhotos = new List<Photo>();
+                var selectedPhotos = AllPhotosGrid.SelectedItems;
+                for (var i = 0; i < selectedPhotos.Count; i++)
+                {
+                    albumPhotos.Add((Photo)selectedPhotos[i]);
+                }
+                album.AlbumListPhotos.AddRange(albumPhotos);
+                //album.AlbumListPhotos = albumPhotos;
+                Frame.Navigate(typeof(AlbumContentPage), album);
+
+
+            }
 
         }
     }

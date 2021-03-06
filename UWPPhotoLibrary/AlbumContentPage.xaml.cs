@@ -26,6 +26,7 @@ namespace UWPPhotoLibrary
     {
         private ObservableCollection<Photo> AlbumPhotos;
         private Album currentAlbum;
+
         
         
         public AlbumContentPage()

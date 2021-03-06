@@ -27,6 +27,11 @@ namespace UWPPhotoLibrary
         private ObservableCollection<Album> Albums;
         //private static ObservableCollection<Album> staticAlbums = PhotoManager.GetAllAlbums();
         private static HashSet<Album> hashAlbums = new HashSet<Album>();
+
+        public static HashSet<Album> GetActiveAlbums()
+        {
+            return hashAlbums;
+        }
         
         public AlbumsPage()
         {
@@ -62,7 +67,7 @@ namespace UWPPhotoLibrary
             /*here the Frame.Navigate will navigate to Allphotos page but it will not filter them according to the Albumname.
              So that is the reason we are giving the parameter album.AlbumType also*/
             /*In order to filter the photos, we are overiding the method OnNavigatedTo in AllPhotos.Xaml.cs page */
-            Frame.Navigate(typeof(AllPhotosPage), album.AlbumType);
+            Frame.Navigate(typeof(AlbumContentPage), album);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

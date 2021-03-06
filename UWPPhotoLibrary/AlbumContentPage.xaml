@@ -36,7 +36,6 @@
                                DoubleTapped="Image_DoubleTapped"/>
                             <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
                             </StackPanel>
-
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>

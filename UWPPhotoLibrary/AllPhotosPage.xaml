@@ -33,7 +33,7 @@
                               SelectionMode="Multiple" ItemClick="AllPhotosGrid_ItemClick"
                   ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-                <GridView.ItemTemplate>
+                <GridView.ItemTemplate> 
                     <DataTemplate x:DataType="data:Photo">
                         <StackPanel>
                             <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"

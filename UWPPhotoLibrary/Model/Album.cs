@@ -19,9 +19,9 @@ namespace UWPPhotoLibrary.Model
         //Below is the constructor
         public Album()
         {
-
+            AlbumListPhotos = new List<Photo>();
         }
-        public Album(String iconFile, string AlbumName)
+        public Album(String iconFile, string AlbumName):this()
         {
             IconFile =  $"ms-appx:///{iconFile}";
             bmImage = new BitmapImage();

@@ -67,16 +67,18 @@ namespace UWPPhotoLibrary.Model
 
         private static List<Album> GetAlbums()
         {
+            //animals Album
             var albums = new List<Album>();
-            var a = new Album($"Assets/Album Icons/Animals-Icon.png","Animals");               
+            var a = new Album($"Assets/Album Icons/Animals-Icon.png", "Animals");
             var photos = new List<Photo>();
             photos.Add(new Photo("Animals1", AssetFolderName.Animals));
             photos.Add(new Photo("Animals2", AssetFolderName.Animals));
+
             a.AlbumListPhotos = photos;
             albums.Add(a);
 
             //Babies Album
-            var b = new Album($"Assets/Album Icons/Babies-Icon.png", "Babies");               
+            var b = new Album($"Assets/Album Icons/Babies-Icon.png", "Babies");
             var photos1 = new List<Photo>();
             photos1.Add(new Photo("Baby1", AssetFolderName.Babies));
             photos1.Add(new Photo("Baby2", AssetFolderName.Babies));
@@ -92,7 +94,7 @@ namespace UWPPhotoLibrary.Model
             albums.Add(f);
 
             //Fruits Album
-            var fr = new Album($"Assets/Album Icons/Fruits-Icon.png","Fruits");
+            var fr = new Album($"Assets/Album Icons/Fruits-Icon.png", "Fruits");
             var photos3 = new List<Photo>();
             photos3.Add(new Photo("Fruits1", AssetFolderName.Fruits));
             photos3.Add(new Photo("Fruits2", AssetFolderName.Fruits));
