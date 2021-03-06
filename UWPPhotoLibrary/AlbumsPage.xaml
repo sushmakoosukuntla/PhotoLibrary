@@ -17,14 +17,14 @@
             <TextBlock Grid.Row="0" x:Name="AlbumNames" Text="Albums" FontSize="22"
                        FontWeight="Bold" FontStyle="Italic" Margin="20,5,0,0"/>
         </RelativePanel>
-        <GridView Grid.Row="1" Name="AlbumsPage1" ItemsSource="{x:Bind Albums}" IsItemClickEnabled="True"
+        <GridView Grid.Row="1" x:Name="AlbumsPage1" ItemsSource="{x:Bind Albums}" IsItemClickEnabled="True"
                               SelectionMode="None" ItemClick="AlbumsPage1_ItemClick" >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Album">
                     <StackPanel>
-                        <Image Name="AlbumsImage" Height="80" Width="80" Source="{x:Bind IconFile}" 
+                        <Image x:Name="AlbumsImage" Height="80" Width="80" Source="{x:Bind IconFile}" 
                                    Margin="40,45,40,10"/>
-                        <TextBlock Name ="AlbumName" Text="{x:Bind AlbumName}"
+                        <TextBlock x:Name ="AlbumName" Text="{x:Bind AlbumName}"
                                        FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>
                 </DataTemplate>

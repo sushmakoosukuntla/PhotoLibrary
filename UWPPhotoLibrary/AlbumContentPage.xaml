@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="UWPPhotoLibrary.AlbumContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPPhotoLibrary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer x:Name="Scroll">
+
+        <Grid Background="Beige">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RelativePanel>
+                <TextBlock x:Name="AlbumNameTextComponent" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+                    RelativePanel.AlignLeftWithPanel="True"/>
+            </RelativePanel>
+            <GridView Grid.Row="1" x:Name="AlbumPhotosGrid" ItemsSource="{x:Bind AlbumPhotos}" IsItemClickEnabled="True"
+                              SelectionMode="None" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Photo">
+                        <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Stretch="Fill"
+                               DoubleTapped="Image_DoubleTapped"/> 
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+        </Grid>
+    </ScrollViewer >
+</Page>

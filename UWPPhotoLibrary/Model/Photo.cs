@@ -54,14 +54,15 @@ namespace UWPPhotoLibrary.Model
             //   MyMediaElement.Source = new Uri(BaseUri, sound.AudioFile);
             DateCreated = DateTime.Now;
         }
-        public Photo(String name, Uri uri)
+
+        /*public Photo(String name, Uri uri)
         {
             Name = name;
             ImageFile = uri.AbsoluteUri;
             bmImage = new BitmapImage();
             bmImage.UriSource = uri;
             bmImage.AutoPlay = true;
-        }
+        }*/
 
         public Photo(String name, StorageFile file) {
             Name = name;

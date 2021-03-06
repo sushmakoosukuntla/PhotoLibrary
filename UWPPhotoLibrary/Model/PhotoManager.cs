@@ -76,13 +76,45 @@ namespace UWPPhotoLibrary.Model
 
         private static List<Album> GetAlbums()
         {
+            //animals Album
             var albums = new List<Album>();
-            albums.Add(new Album ($"Assets/Album Icons/Animals-Icon.png", AlbumName.Animals));
-            albums.Add(new Album ($"Assets/Album Icons/Babies-Icon.png", AlbumName.Babies));
-            albums.Add(new Album ($"Assets/Album Icons/Flowers-Icon.png", AlbumName.Flowers));
-            albums.Add(new Album ($"Assets/Album Icons/Fruits-Icon.png", AlbumName.Fruits));
-            albums.Add(new Album ($"Assets/Album Icons/Nature-Icon.png", AlbumName.Nature ));
+            var a = new Album($"Assets/Album Icons/Animals-Icon.png", AlbumName.Animals);               
+            var photos = new List<Photo>();
+            photos.Add(new Photo("Animals1", AlbumName.Animals));
+            photos.Add(new Photo("Animals2", AlbumName.Animals));
+            a.AlbumListPhotos = photos;
+            albums.Add(a);
 
+            //Babies Album
+            var b = new Album($"Assets/Album Icons/Babies-Icon.png", AlbumName.Babies);               
+            var photos1 = new List<Photo>();
+            photos1.Add(new Photo("Baby1", AlbumName.Babies));
+            photos1.Add(new Photo("Baby2", AlbumName.Babies));
+            b.AlbumListPhotos = photos1;
+            albums.Add(b);
+
+            //Flowers Album
+            var f = new Album($"Assets/Album Icons/Flowers-Icon.png", AlbumName.Flowers);
+            var photos2 = new List<Photo>();
+            photos2.Add(new Photo("Flowers1", AlbumName.Flowers));
+            photos2.Add(new Photo("Flowers1", AlbumName.Flowers));
+            f.AlbumListPhotos = photos2;
+            albums.Add(f);
+
+            //Fruits Album
+            var fr = new Album($"Assets/Album Icons/Fruits-Icon.png", AlbumName.Fruits);
+            var photos3 = new List<Photo>();
+            photos3.Add(new Photo("Fruits1", AlbumName.Fruits));
+            photos3.Add(new Photo("Fruits2", AlbumName.Fruits));
+            fr.AlbumListPhotos = photos3;
+            albums.Add(fr);
+
+            //Nature Album
+            var n = new Album($"Assets/Album Icons/Nature-Icon.png", AlbumName.Nature);
+            var photos4 = new List<Photo>();
+            photos4.Add(new Photo("Nature", AlbumName.Nature));
+            n.AlbumListPhotos = photos4;
+            albums.Add(n);
             return albums;
         }
      
