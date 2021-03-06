@@ -14,8 +14,6 @@ namespace UWPPhotoLibrary.Model
     }
     public class Category
     {
-      //  internal AlbumName AlbumType;
-
         public PhotoCategory PhotoCategory { get; set; }        
         public string IconFile { get; set; }
      

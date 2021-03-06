@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj": {}
+    "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj": {
+    "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
         "projectName": "UWPPhotoLibrary",
-        "projectPath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
+        "projectPath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
         "packagesPath": "C:\\Users\\sushm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\obj\\",
+        "outputPath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

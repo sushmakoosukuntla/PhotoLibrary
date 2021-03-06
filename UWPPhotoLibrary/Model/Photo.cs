@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace UWPPhotoLibrary.Model
 {
-    public enum AlbumName
+    public enum AssetFolderName
     {
         Animals,
         Babies,
@@ -25,7 +25,7 @@ namespace UWPPhotoLibrary.Model
     }
     public class Photo
     {
-        public AlbumName AlbumName { get; set; }
+        public AssetFolderName AlbumName { get; set; }
         public string ImageFile { get; set; }
         public DateTime DateCreated { get; }
         public string Name { get; set; }
@@ -40,7 +40,7 @@ namespace UWPPhotoLibrary.Model
         {
 
         }
-        public Photo(String name, AlbumName albumName)
+        public Photo(String name, AssetFolderName albumName)
         {
 
             Name = name;
