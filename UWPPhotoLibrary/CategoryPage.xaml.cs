@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UWPPhotoLibrary.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,7 @@ namespace UWPPhotoLibrary
     public sealed partial class CategoryPage : Page
     {
         private List<Category> CategoryList;
+        private IReadOnlyList<StorageFile> SelectedPhotosList;
 
         private static HashSet<Category> CatrgorySet = new HashSet<Category>();
         public CategoryPage()
@@ -42,6 +44,7 @@ namespace UWPPhotoLibrary
             {
 
                 CategoryList.Add(value);
+                
             }
         }
         private void CategoryGrid_ItemClick(object sender, ItemClickEventArgs e)
@@ -70,22 +73,40 @@ namespace UWPPhotoLibrary
         {
             if (e != null && e.Parameter != null)
             {
-                var AlbumName = (String)e.Parameter;
-
-                CategoryList.Clear();
-                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = "Albums" });
-                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = "AllPhotos" });
-                CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = "Favotites" });
-
-                CatrgorySet.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = AlbumName });
-
-                foreach (var value in CatrgorySet)
+                if (e.Parameter.GetType() == typeof(String))
                 {
+                    var AlbumName = (String)e.Parameter;
 
-                    CategoryList.Add(value);
+                    CategoryList.Clear();
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = "Albums" });
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = "AllPhotos" });
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = "Favotites" });
+
+                    CatrgorySet.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = AlbumName });
+
+                    foreach (var value in CatrgorySet)
+                    {
+
+                        CategoryList.Add(value);
+                    }
+                }
+                if (e.Parameter.GetType() == typeof(Photo))
+                {
+                   var Coverimage = (Photo)e.Parameter;
+                    CategoryList.Clear();
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Albums-Icon.png", PhotoCategory = "Albums" });
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/AllPhotos-Icon.png", PhotoCategory = "AllPhotos" });
+                    CategoryList.Add(new Category { IconFile = $"Assets/Category Icons/Favorites-Icon.png", PhotoCategory = "Favotites" });
+
+
+                    foreach (var value in CatrgorySet)
+                    {
+                        value.IconFile = Coverimage.ImageFile;
+                        CategoryList.Add(value);
+                    }
+                   
                 }
             }
-
         }
     }
 }

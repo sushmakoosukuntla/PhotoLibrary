@@ -75,13 +75,11 @@ namespace UWPPhotoLibrary
             foreach (StorageFile imageFile in SelectedPhotosList)
             {
                 // var uri = new System.Uri(imageFile.Path);
-                var image = new Photo(imageFile.Path, imageFile);
+                var image = new Photo(imageFile.Name, imageFile);
                 ToBeUploadedPhotosList.Add(image);
 
             }
            
-                
-            
                 Frame.Navigate(typeof(CustomAlbum), ToBeUploadedPhotosList);
             
            

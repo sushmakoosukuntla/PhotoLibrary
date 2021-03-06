@@ -21,6 +21,12 @@
                 <Button Content="" Name="CustomAlbumButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
                      Background="Transparent" Click="CustomAlbumButton_Click"/>
+                <Button Content="CoverImage" Name="CoverImageButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True" IsEnabled="False" 
+                     Background="Transparent" Click="CoverImageButton_Click"/>
+               
+                
+
             </RelativePanel>
             <RelativePanel>
                 <Button Content="Show Full Screen" Name="FullScreenButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"

@@ -30,6 +30,8 @@ namespace UWPPhotoLibrary
 
         private static HashSet<Photo> PhotoSet = new HashSet<Photo>();
         private static string AlbumContent;
+        private object CatrgorySet;
+
         public CustomAlbum()
         {
             this.InitializeComponent();
@@ -113,18 +115,22 @@ namespace UWPPhotoLibrary
             if (AllPhotosGrid.SelectedItems.Count == 1 && AllPhotosGrid.SelectedItems[0].Equals(clickItem))
             {
                 CustomAlbumButton.IsEnabled = false;
+                FullScreenButton.IsEnabled = false;
+                CoverImageButton.IsEnabled = false;
             }
             else if (CustomAlbumButton.IsEnabled != true)
             {
                 CustomAlbumButton.IsEnabled = true;
+                CoverImageButton.IsEnabled = true;
+                FullScreenButton.IsEnabled = true;
 
             }
-
+           
 
 
         }
 
-       
+
         private void FullScreenButton_Click(object sender, RoutedEventArgs e)
         {
             var custom = new List<Photo>();
@@ -134,10 +140,25 @@ namespace UWPPhotoLibrary
                 custom.Add((Photo)CustomImage[i]);
 
             }
+            Frame.Navigate(typeof(SingleImage), custom);
 
         }
 
+        private void CoverImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var custom = new List<Photo>();
 
+
+
+            var CustomImage = AllPhotosGrid.SelectedItems;
+
+            for (var i = 0; i < CustomImage.Count; i++)
+            {
+                custom.Add((Photo)CustomImage[i]);
+                Frame.Navigate(typeof(CategoryPage), (Photo)CustomImage[i]);
+            }
+
+        }
     }
 }
 
