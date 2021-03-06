@@ -22,8 +22,8 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Album">
                     <StackPanel>
-                        <Image x:Name="AlbumsImage" Height="80" Width="80" Source="{x:Bind IconFile}" 
-                                   Margin="40,45,40,10"/>
+                        <Image x:Name="AlbumsImage" Height="100" Width="115" Source="{x:Bind bmImage}" 
+                                   Margin="40,45,40,10" Stretch="Fill"/>
                         <TextBlock x:Name ="AlbumName" Text="{x:Bind AlbumName}"
                                        FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
                     </StackPanel>

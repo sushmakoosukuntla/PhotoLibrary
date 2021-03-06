@@ -50,8 +50,12 @@ namespace UWPPhotoLibrary
                 hashAlbums.Add(a);
             }
         }
-    
-        
+
+        public static HashSet<Album> getAllAbums() {
+            return hashAlbums;
+        }
+
+
         /*When the consumer clicks on the Album(Animals,babies,fruits,flowers,nature), the object will store in e,
          object in the sence the album properties(IconFile and Albumtype) so we are type casting the object by giving the type
         Album.*/
@@ -67,7 +71,7 @@ namespace UWPPhotoLibrary
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Frame.Navigate(typeof(AlbumsPage),AlbumName.Text);
+            //Frame.Navigate(typeof(AlbumsPage),AssetFolderName.Text);
             if (e != null && e.Parameter != null )
             {
                 var AlbumName = (string)e.Parameter;
@@ -86,6 +90,7 @@ namespace UWPPhotoLibrary
             }
         }
 
+        
     }
 
 }

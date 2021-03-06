@@ -17,10 +17,10 @@
                 <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
                      Background="LightGreen" Click="FavoriteButton_Click" Margin="30,10,10,10"/>
-                <ComboBox Name="ComboAlbums" RelativePanel.RightOf="FavoriteButton" PlaceholderText="Add to Album" ItemsSource="{x:Bind hashAlbums}"
+                <ComboBox x:Name="ComboAlbums" RelativePanel.RightOf="FavoriteButton" PlaceholderText="Add to Album" ItemsSource="{x:Bind hashAlbums}"
                           SelectionChanged="ComboBox_SelectionChanged" Background="LightGreen"  IsEnabled="False" 
-                          Margin="30,10,10,10">
-                <ComboBox.ItemTemplate>
+                          Margin="0,10,10,10">
+                    <ComboBox.ItemTemplate>
                         <DataTemplate x:DataType="data:Album">
                             <TextBlock Text="{Binding AlbumName}">
                             </TextBlock>
@@ -37,12 +37,10 @@
                     <DataTemplate x:DataType="data:Photo">
                         <StackPanel>
                             <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
-                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,10,10,10" Stretch="Fill"
-                           IsDoubleTapEnabled="True" DoubleTapped="Image_DoubleTapped"/>
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,10,10,10" 
+                           IsDoubleTapEnabled="True" DoubleTapped="Image_DoubleTapped" Stretch="Fill"/>
                             <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
                         </StackPanel>
-
-
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>

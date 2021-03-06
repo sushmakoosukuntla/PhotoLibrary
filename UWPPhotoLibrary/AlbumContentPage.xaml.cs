@@ -25,6 +25,8 @@ namespace UWPPhotoLibrary
     public sealed partial class AlbumContentPage : Page
     {
         private ObservableCollection<Photo> AlbumPhotos;
+        private Album currentAlbum;
+
         
         
         public AlbumContentPage()
@@ -45,6 +47,7 @@ namespace UWPPhotoLibrary
                 {
                     AlbumPhotos.Add(a);
                 }
+                currentAlbum = album;
 
             }
         }
@@ -65,6 +68,32 @@ namespace UWPPhotoLibrary
             Frame.Navigate(typeof(SingleImage), Ps);
         }
 
-        
+        private void AlbumPhotosGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickItem = (Photo)e.ClickedItem;
+            /*All photos grid is different and selectedItems list is different(I have kept selection mode as multiple)
+            that is the reason selectedItems will be list*/
+            //When we select the items, selectedItems will come to the different list
+            /*When the selectedItems count is equal to 1 && the click items is equal to selectedItems[0], 
+            it means the selected items list size is equal to 1, then the favorite button will get disabled.*/
+            if (AlbumPhotosGrid.SelectedItems.Count == 1 && AlbumPhotosGrid.SelectedItems[0].Equals(clickItem))
+            {
+                SetCoverPhoto.IsEnabled = false;
+               
+            }
+            else if (SetCoverPhoto.IsEnabled != true)
+            {
+                SetCoverPhoto.IsEnabled = true;
+                
+            }
+        }
+
+        private void SetCoverPhoto_Click(object sender, RoutedEventArgs e)
+        { 
+            
+            var selectedCoverPhoto = (Photo)AlbumPhotosGrid.SelectedItem;
+            currentAlbum.SetCoverPhotoForAlbum(selectedCoverPhoto);
+            Frame.Navigate(typeof(AlbumsPage));
+        }
     }
 }

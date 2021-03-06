@@ -29,8 +29,6 @@ namespace UWPPhotoLibrary
         private HashSet<Album> hashAlbums = new HashSet<Album>();
 
 
-
-     
         public AllPhotosPage()
         {
             this.InitializeComponent();
@@ -39,7 +37,7 @@ namespace UWPPhotoLibrary
             {
                 photos.Add(p);
             }
-            hashAlbums = AlbumsPage.GetActiveAlbums();
+            hashAlbums = AlbumsPage.getAllAbums();
         }
         
         public ObservableCollection<Photo> GetPhotos()
@@ -54,13 +52,13 @@ namespace UWPPhotoLibrary
         {
             if (e != null && e.Parameter != null)
             {
-                if (e.Parameter.GetType() == typeof(AlbumName))
+                /*if (e.Parameter.GetType() == typeof(AssetFolderName))
                 {
-                    var albumType = (AlbumName)e.Parameter;
+                    var albumType = (AssetFolderName)e.Parameter;
                     PhotoManager.GetPhotosByCategory(GetPhotos(), albumType);
-                }
+                }*/
 
-                else if (e.Parameter.GetType() == typeof(List<Photo>))
+                if (e.Parameter.GetType() == typeof(List<Photo>))
                 {
                     var pickedPhotos = (List<Photo>)e.Parameter;
                     foreach (var photo in pickedPhotos)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nBiNPTiH5TsxLzn8yqjAgXDgF85F2rjzOtcNHv1tgs+jIq9NwotyAlwsNZePPO5rALzfMQEjS/2SpGHTA5XYYg==",
+  "dgSpecHash": "zoGxy3bYzbkWqyIHTWXg6yUtGSM/m2vEezxAW6mFGiAuz3/ysFOu3bttNXpcGMd5MUY+d6VvzWgJTLApREX0UA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\Bootcamp\\UWPPhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
+  "projectFilePath": "C:\\Users\\sushm\\OneDrive\\Documents\\GitHub\\PhotoLibrary\\UWPPhotoLibrary\\UWPPhotoLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",

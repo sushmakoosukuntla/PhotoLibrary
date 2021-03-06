@@ -18,10 +18,10 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="data:Category">
                     <StackPanel>
-                        <Image Name="Image" Height="80" Width="80" Source="{x:Bind IconFile}" 
-                                   Margin="40,45,40,10"/>
+                        <Image Name="Image" Height="150" Width="175" Source="{x:Bind IconFile}" 
+                                   Margin="40,45,40,10" Stretch="Fill"/>
                         <TextBlock Name ="Category Name" Text="{x:Bind PhotoCategory}"
-                                       FontSize="20" FontStyle="Italic" Margin="45, 0, 15, 0"/>
+                                       FontSize="20" FontStyle="Italic" Margin="50, 0, 15, 0"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
