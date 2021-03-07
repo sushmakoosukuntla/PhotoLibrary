@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:UWPPhotoLibrary.Model"
     mc:Ignorable="d">
 
-    <Grid Background="Gray">
+    <Grid Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,8 +22,8 @@
                 <DataTemplate x:DataType="data:Photo">
                     <StackPanel>
                         <Image Name="Image" Height="175" Width="200"  VerticalAlignment="Center" HorizontalAlignment="Center"  Source="{x:Bind bmImage}" 
-                                     Stretch="UniformToFill" DoubleTapped="Image_DoubleTapped" Margin="30,10,10,10"/>
-                        <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
+                                     Stretch="UniformToFill" DoubleTapped="Image_DoubleTapped" Margin="10,10,10,10"/>
+                        <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="10,0,0,0"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>

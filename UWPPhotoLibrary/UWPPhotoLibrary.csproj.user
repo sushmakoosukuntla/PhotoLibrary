@@ -5,4 +5,15 @@
     <UseEmulator>true</UseEmulator>
     <AllowLocalNetworkLoopback>true</AllowLocalNetworkLoopback>
   </PropertyGroup>
+  <PropertyGroup>
+    <Source>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</Source>
+    <AppIconSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</AppIconSource>
+    <SmallTileSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</SmallTileSource>
+    <MediumTileSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</MediumTileSource>
+    <WideTileSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</WideTileSource>
+    <LargeTileSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</LargeTileSource>
+    <SplashScreenSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</SplashScreenSource>
+    <PackageLogoSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</PackageLogoSource>
+    <BadgeLogoSource>C:\Users\sushm\OneDrive\Desktop\PhotoLibrary Photos\camera-icon.png</BadgeLogoSource>
+  </PropertyGroup>
 </Project>

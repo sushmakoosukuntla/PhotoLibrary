@@ -1,4 +1,4 @@
-﻿<Page Background="Gray"
+﻿<Page Background="Beige"
     x:Class="UWPPhotoLibrary.AlbumContentPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,7 +9,7 @@
 
     <ScrollViewer x:Name="Scroll">
 
-        <Grid Background="Gray">
+        <Grid Background="Beige">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -20,7 +20,7 @@
                 <Button
                     Content="Set As CoverPhoto" Name="SetCoverPhoto" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.RightOf="AlbumNameTextComponent" IsEnabled="False" 
-                     Background="green" Margin="10,0,0,0" Click="SetCoverPhoto_Click"/>
+                     Background="LightGreen" Margin="10,0,0,0" Click="SetCoverPhoto_Click"/>
 
             </RelativePanel>
             <GridView Grid.Row="1" x:Name="AlbumPhotosGrid" ItemsSource="{x:Bind AlbumPhotos}" IsItemClickEnabled="True"
@@ -31,9 +31,9 @@
                     <DataTemplate x:DataType="data:Photo">
                         <StackPanel>
                             <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
-                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,10,10,10" Stretch="UniformToFill"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10,10,10" Stretch="UniformToFill"
                                DoubleTapped="Image_DoubleTapped"/>
-                            <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
+                            <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="10,0,0,0"/>
                             </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
