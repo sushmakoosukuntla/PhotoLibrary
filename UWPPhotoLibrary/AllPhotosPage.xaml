@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page Background="Gray"
     x:Class="UWPPhotoLibrary.AllPhotosPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <ScrollViewer x:Name="Scroll">
 
-        <Grid Background="Beige">
+        <Grid Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -16,9 +16,9 @@
             <RelativePanel>
                 <Button Content="Add To Favorites" Name="FavoriteButton" FontStyle="Italic" FontWeight="Bold" FontSize="14"
                     RelativePanel.AlignLeftWithPanel="True" IsEnabled="False" 
-                     Background="LightGreen" Click="FavoriteButton_Click" Margin="30,10,10,10"/>
+                     Background="green" Click="FavoriteButton_Click" Margin="30,10,10,10"/>
                 <ComboBox x:Name="ComboAlbums" RelativePanel.RightOf="FavoriteButton" PlaceholderText="Add to Album" ItemsSource="{x:Bind hashAlbums}"
-                          SelectionChanged="ComboBox_SelectionChanged" Background="LightGreen"  IsEnabled="False" 
+                          SelectionChanged="ComboBox_SelectionChanged" Background="green"  IsEnabled="False" 
                           Margin="0,10,10,10">
                     <ComboBox.ItemTemplate>
                         <DataTemplate x:DataType="data:Album">
@@ -38,7 +38,7 @@
                         <StackPanel>
                             <Image Name="Image" Height="175" Width="200" Source="{Binding Path=bmImage}"
                                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="30,10,10,10" 
-                           IsDoubleTapEnabled="True" DoubleTapped="Image_DoubleTapped" Stretch="Fill"/>
+                           IsDoubleTapEnabled="True" DoubleTapped="Image_DoubleTapped" Stretch="UniformToFill"/>
                             <TextBlock Name="ImageName" FontSize="15" Text="{x:Bind Name}" Margin="30,0,0,0"/>
                         </StackPanel>
                     </DataTemplate>
